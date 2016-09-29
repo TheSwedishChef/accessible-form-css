@@ -1,0 +1,234 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet/less" href="css/af-form.less">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <script>
+    //<![CDATA[
+      less = {
+        env: "development",
+        async: false,
+        fileAsync: false,
+        poll: 1000,
+        functions: {},
+        dumpLineNumbers: "comments",
+        relativeUrls: false,
+        rootpath: "css/",
+        sm: "on",
+        su: "on"
+      };
+      //]]>
+    </script>
+    <script src="js/vendor/less.min.js"></script>
+  </head>
+  <body>
+    <section>
+      <form class="af-form af-dark af-labels-left af-styled">
+        <span class="legend">
+          <legend>af-dark af-labels-left af-styled</legend>
+        </span>
+        <fieldset>
+          <div class="af-wrapper">
+            <span class="legend">
+              <legend>Fieldset title</legend>
+            </span>
+            <p>
+              <label for="select-prefix">Salutation</label>
+              <select id="select-prefix">
+                <option value="Mr" selected checked>Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Ms">Ms</option>
+              </select>
+            </p>
+            <p>
+              <label for="fname">First name</label>
+              <input id="fname" type="text" placeholder="first name">
+            </p>
+            <p>
+              <label for="lname">Last name</label>
+              <input id="lname" type="text" placeholder="last name">
+            </p>
+            <p>
+              <label for="select">Select label</label>
+              <select id="select">
+                <option value="option 1" selected checked>Option 1</option>
+                <option value="option 2">Option 2</option>
+                <option value="option 3">Option 3</option>
+              </select>
+            </p>
+          </div>
+        </fieldset>
+        <fieldset class="af-full-name">
+          <div class="af-wrapper">
+            <span class="legend">
+              <legend>af-full-name af-inline</legend>
+            </span>
+            <div class="af-inline">
+              <p class="af-grow-2">
+                <label for="select-prefix">Salutation</label>
+                <select id="select-prefix">
+                  <option value="Mr" selected checked>Mr</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Ms">Ms</option>
+                </select>
+              </p>
+              <p class="af-grow-one">
+                <label for="fname">First name</label>
+                <input id="fname" type="text" placeholder="first name">
+              </p>
+              <p class="af-grow-one">
+                <label for="lname">Last name</label>
+                <input id="lname" type="text" placeholder="last name">
+              </p>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="af-wrapper">
+            <span class="legend">
+              <legend>Fieldset title</legend>
+            </span>
+            <p class="af-radiogroup af-radiogroup-inline">
+              <label for="radio">af-radiogroup af-radiogroup-inline</label>
+              <span>
+                <label><input name="radio" type="radio" value="1" checked> Option 1</label>
+                <label><input name="radio" type="radio" value="2"> Option 2</label>
+                <label><input name="radio" type="radio" value="3"> Option 3</label>
+              </span>
+            </p>
+            <p class="af-radiogroup">
+              <label for="radio">af-radiogroup</label>
+              <span>
+                <label><input name="radio" type="radio" value="1" checked> Option 1</label>
+                <label><input name="radio" type="radio" value="2"> Option 2</label>
+                <label><input name="radio" type="radio" value="3"> Option 3</label>
+              </span>
+            </p>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+
+
+    <section>
+      <form class="af-form af-dark af-labels-top af-justify af-styled">
+        <span class="legend">
+          <legend>af-dark af-labels-top af-justify af-styled</legend>
+        </span>
+        <fieldset class="af-full-name">
+          <div class="af-wrapper">
+            <span class="legend">
+              <legend>af-full-name</legend>
+            </span>
+            <p>
+              <label for="select-prefix">Salutation</label>
+              <select id="select-prefix">
+                <option value="Mr" selected checked>Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Ms">Ms</option>
+              </select>
+            </p>
+            <p>
+              <label for="fname">First name</label>
+              <input id="fname" type="text" placeholder="first name">
+            </p>
+            <p>
+              <label for="lname">Last name</label>
+              <input id="lname" type="text" placeholder="last name">
+            </p>
+            <p>
+              <label for="select">Select label</label>
+              <select id="select">
+                <option value="option 1" selected checked>Option 1</option>
+                <option value="option 2">Option 2</option>
+                <option value="option 3">Option 3</option>
+              </select>
+            </p>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="af-wrapper">
+            <span class="legend">
+              <legend>Fieldset title</legend>
+            </span>
+            <p class="af-radiogroup af-radiogroup-buttons">
+              <label for="radio">af-radiogroup af-radiogroup-buttons</label>
+              <span>
+                <label><input name="radio" type="radio" value="1" checked> Option 1</label>
+                <label><input name="radio" type="radio" value="2"> Option 2</label>
+                <label><input name="radio" type="radio" value="3"> Option 3</label>
+              </span>
+            </p>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+
+
+    <section style="background-color:black;">
+      <form class="af-form af-light af-boxed af-labels-left af-styled">
+        <span class="legend">
+          <legend>af-light af-boxed af-labels-left af-styled</legend>
+        </span>
+        <fieldset>
+          <div class="af-wrapper">
+            <span class="legend">
+              <legend>Full name</legend>
+            </span>
+            <p>
+              <label for="select-prefix">Salutation</label>
+              <select id="select-prefix">
+                <option value="Mr" selected checked>Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Ms">Ms</option>
+              </select>
+            </p>
+            <p>
+              <label for="fname">First name</label>
+              <input id="fname" type="text" placeholder="first name">
+            </p>
+            <p>
+              <label for="lname">Last name</label>
+              <input id="lname" type="text" placeholder="last name">
+            </p>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="af-wrapper">
+            <span class="legend">
+              <legend>Fieldset title</legend>
+            </span>
+            <p class="af-radiogroup af-radiogroup-buttons">
+              <label for="radio">af-radiogroup af-radiogroup-buttons</label>
+              <span>
+                <label><input name="radio" type="radio" value="1" checked> Option 1</label>
+                <label><input name="radio" type="radio" value="2"> Option 2</label>
+                <label><input name="radio" type="radio" value="3"> Option 3</label>
+              </span>
+            </p>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/vendor/less.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
