@@ -28,11 +28,6 @@ section {
 
 form.af-form {
   display: block;
-  legend {
-    font-weight: bold;
-    font-size: 1.5em;
-    margin-bottom: 1em;
-  }
   &.af-styled {
     fieldset {
       padding: 2em;
@@ -48,6 +43,16 @@ form.af-form {
         }
       }
     }
+    & > .af-legend, fieldset > .af-wrapper > .af-legend {
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+    & > .af-legend {
+      font-size: 1.5em;
+    }
+    fieldset > .af-wrapper > .af-legend {
+      font-size: 1.15em;
+    }
   }
   fieldset {
     display: block;
@@ -59,16 +64,20 @@ form.af-form {
       margin: 0 auto;
     }
     legend {
-      font-size: 1.15em;
+      font-size: 1em;
     }
     &:last-child {
       margin-bottom: 0;
     }
-    .af-inline {
+    &.af-inline .af-wrapper div {
       display: flex;
+      span.af-legend.af-grow-label {
+        width: 30%;
+        margin-right: 0.5em;
+        flex-grow: 1;
+      }
       p {
         flex-grow: 1;
-        label { display: none; }
         &.af-grow-one { flex-grow: 1; }
         &.af-grow-two { flex-grow: 2; }
         &.af-grow-three { flex-grow: 3; }
@@ -96,6 +105,7 @@ form.af-form {
           display: inline-block;;
           max-width: 67%;
           clear: right;
+          vertical-align: text-top;
           label {
             display: block;
             clear: both;
@@ -175,7 +185,7 @@ form.af-form {
     }
   }
   &.af-labels-left {
-    label {
+    label, span.af-legend {
       text-align: right;
       clear: left;
       display: inline-block;
@@ -204,6 +214,19 @@ form.af-form {
       &.af-radiogroup span label {
         width: auto;
       }
+      &.af-inline {
+        .af-wrapper {
+          & > p, & > div {
+            padding-left: 30%;
+            input[type="text"], input[type="phone"], input[type="email"], input[type="url"], textarea {
+              width: calc(~"100% - 1.7rem");
+            }
+            select {
+              width: calc(~"100% - 0.7rem");
+            }
+          }
+        }
+      }
     }
   }
   &.af-dark {
@@ -230,7 +253,15 @@ form.af-form {
   }
 }
 
+.af-hide-labels label,
+label.af-hide-labels {
+  display: none !important;
+}
+
 @media only screen and (max-width: 500px) {
+  // .af-hide-labels label, label.af-hide-labels {
+  //   display: inline-block !important;
+  // }
   form.af-form {
     &.af-labels-left {
       fieldset {
@@ -241,6 +272,9 @@ form.af-form {
             text-align: left;
             margin-right: 0;
           }
+          input, select, textarea {
+            flex-shrink: 0;
+          }
           input[type="text"], input[type="phone"], input[type="email"], input[type="url"], textarea {
             width: calc(~"100% - 1.7rem");
           }
@@ -248,13 +282,12 @@ form.af-form {
             width: calc(~"100% - 0.7rem");
           }
         }
-      }
-      .af-inline {
-        display: block;
-        p {
-          label {
-            display: block;
-            visibility: visible;
+        &.af-inline {
+          display: block;
+          .af-wrapper {
+            & > p, & > div {
+              padding-left: 0;
+            }
           }
         }
       }

@@ -36,12 +36,12 @@
   <body>
     <section>
       <form class="af-form af-dark af-labels-left af-styled">
-        <span class="legend">
+        <span class="af-legend">
           <legend>af-dark af-labels-left af-styled</legend>
         </span>
         <fieldset>
           <div class="af-wrapper">
-            <span class="legend">
+            <span class="af-legend">
               <legend>Fieldset title</legend>
             </span>
             <p>
@@ -70,12 +70,76 @@
             </p>
           </div>
         </fieldset>
-        <fieldset class="af-full-name">
+        <fieldset>
           <div class="af-wrapper">
-            <span class="legend">
-              <legend>af-full-name af-inline</legend>
+            <span class="af-legend">
+              <legend>af-inline</legend>
             </span>
             <div class="af-inline">
+              <p class="af-grow-one">
+                <label for="day">Day</label>
+                <select id="day">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                </select>
+              </p>
+              <p class="af-grow-one">
+                <label for="month">Month</label>
+                <select id="month">
+                  <option value="Jan" selected>Jan</option>
+                  <option value="Feb">Feb</option>
+                </select>
+              </p>
+              <p class="af-grow-one">
+                <label for="year">Year</label>
+                <select id="year">
+                  <option value="1980" selected>1980</option>
+                  <option value="2">2</option>
+                </select>
+              </p>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="af-inline af-hide-labels">
+          <div class="af-wrapper">
+            <span class="af-legend">
+              <legend>af-inline</legend>
+            </span>
+            <p>Mailing address</p>
+            <p>
+              <label for="street1">Street 1</label>
+              <input type="text" placeholder="street">
+            </p>
+            <p>
+              <label for="street2">Street 2</label>
+              <input type="text" placeholder="apt/unit">
+            </p>
+            <div>
+              <p class="af-grow-two">
+                <label for="city">City</label>
+                <input type="text" id="city" placeholder="city">
+              </p>
+              <p class="af-grow-one">
+                <label for="state">State</label>
+                <input type="text" id="state" placeholder="state">
+              </p>
+              <p class="af-grow-one">
+                <label for="zip">Zip</label>
+                <input type="text" id="zip" placeholder="zip/postal">
+              </p>
+            </div>
+            <p>
+              <label for="country">Country</label>
+              <input id="country" type="text" placeholder="country">
+            </p>
+          </div>
+        </fieldset>
+        <fieldset class="af-full-name af-inline af-hide-labels">
+          <div class="af-wrapper">
+            <span class="af-legend">
+              <legend>af-full-name af-inline</legend>
+            </span>
+            <div>
               <p class="af-grow-2">
                 <label for="select-prefix">Salutation</label>
                 <select id="select-prefix">
@@ -97,7 +161,7 @@
         </fieldset>
         <fieldset>
           <div class="af-wrapper">
-            <span class="legend">
+            <span class="af-legend">
               <legend>Fieldset title</legend>
             </span>
             <p class="af-radiogroup af-radiogroup-inline">
@@ -106,6 +170,9 @@
                 <label><input name="radio" type="radio" value="1" checked> Option 1</label>
                 <label><input name="radio" type="radio" value="2"> Option 2</label>
                 <label><input name="radio" type="radio" value="3"> Option 3</label>
+                <label><input name="radio" type="radio" value="4"> Option 4</label>
+                <label><input name="radio" type="radio" value="5"> Option 5</label>
+                <label><input name="radio" type="radio" value="6"> Option 6</label>
               </span>
             </p>
             <p class="af-radiogroup">
@@ -114,6 +181,9 @@
                 <label><input name="radio" type="radio" value="1" checked> Option 1</label>
                 <label><input name="radio" type="radio" value="2"> Option 2</label>
                 <label><input name="radio" type="radio" value="3"> Option 3</label>
+                <label><input name="radio" type="radio" value="4"> Option 4</label>
+                <label><input name="radio" type="radio" value="5"> Option 5</label>
+                <label><input name="radio" type="radio" value="6"> Option 6</label>
               </span>
             </p>
           </div>
