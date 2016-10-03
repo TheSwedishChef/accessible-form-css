@@ -1,53 +1,135 @@
+@import (css) "main.css";
+@import (css) "normalize.css";
+@import (css) "font-awesome.min.css";
+
 @dark: rgba(0,0,0,0.05);
 @hoverdark: rgba(0,0,0,0.075);
 @light: rgba(255,255,255,0.25);
 @hoverlight: rgba(255,255,255,0.4);
 @smallradius: 1px;
 @bigradius: 5px;
+@metric: 12px;
+@pad: @metric*2;
+
+@black: #000;
+@white: #fff;
+
+@small: 0.85rem;
+
+.selectfull { width: calc(~"100% - 0rem"); }
+.selectpartial { width: calc(~"67.5% - 0rem"); }
+.inputfull { width: calc(~"100% - "@metric); }
+.inputpartial { width: calc(~"67.5% - "@metric); }
 
 body {
-  // display: flex;
-  // padding: 2em;
-  display: block;
   padding: 0;
   margin: 0;
+  font-size: 16px;
+}
+
+#container {
+  width: auto;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 section {
-  display: block;
-  margin: 3%;
-  padding: 0;
-  // float: left;
-  // half
-  // width: 44%;
-  // thirds
-  // width: 27%;
-  // quarters
-  // width: 19%
+  padding: @pad;
+  &#one {
+    background-color: @dark;
+    display: block;
+    position: fixed;
+    width: 375px - @pad*2;
+    height: 100%;
+  }
+  &#two {
+    flex-grow: 2;
+    position: absolute;
+    left: 375px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 form.af-form {
   display: block;
+  color: @black;
   &.af-styled {
-    fieldset {
-      padding: 2em;
-      max-width: calc(~"100% - 4em");
-      margin-bottom: 1em;
+    .af-button {
+      border: 0;
+      outline: none;
+      border-radius: @smallradius;
+      padding: 0.25em 0.5em;
+      margin-right: @metric;
+      &.af-primary, &.af-secondary {
+        font-size: 1.25em;
+      }
+      &.af-primary {
+        padding-left: @metric;
+        padding-right: @metric;
+      }
+      &.af-secondary {
+        border: 1px solid @dark;
+      }
+      &.af-tertiary, &.af-secondary {
+        background: 0 none;
+      }
+      &.af-button-left {
+        float: left;
+      }
+      &.af-button-right {
+        float: right;
+        margin: 0 0 0 @metric;
+        &:last-of-type { margin-left: 0; }
+      }
+      &.af-add {
+        display: block;
+        width: 100% !important;
+        margin-top: @metric/2;
+      }
+    }
+    &.af-boxed {
+      padding: @metric*2;
       border-radius: @bigradius;
+      background-color: @dark;
+    }
+    fieldset {
+      padding: @metric*2 @metric*3;
+      // max-width: calc(~"100% - "@metric*6);
+      border-radius: @bigradius;
+      margin-bottom: @metric*2;
+      background-color: @dark;
       p {
-        input[type="text"], input[type="phone"], input[type="email"], input[type="url"] {
-          padding: 0.25rem 0.5rem;
+        input:not([type="radio"]):not([type="checkbox"]) {
+          padding: @metric/3 @metric/2;
           border: 0 none;
           outline: none;
           border-radius: @smallradius;
         }
       }
+      &.af-actions {
+        background: 0 none !important;
+        text-align: right;
+        padding: 0;
+        max-width: 100%;
+        .af-wrapper {
+          max-width: 100%;
+          width: 100%;
+          margin: 0;
+          input, select {
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+        &:last-child { margin-bottom: 0; }
+      }
     }
-    & > .af-legend, fieldset > .af-wrapper > .af-legend {
+    .af-legend {
+      display: block;
       font-weight: bold;
-      margin-bottom: 1em;
-    }
-    & > .af-legend {
+      margin-bottom: @metric;
       font-size: 1.5em;
     }
     fieldset > .af-wrapper > .af-legend {
@@ -55,80 +137,72 @@ form.af-form {
     }
   }
   fieldset {
+    text-align: center;
+    border: 0 none;
+    width: auto;
     display: block;
     clear: both;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    &:last-child { margin-bottom: 0; }
+    &.af-hide-labels .af-wrapper > p {
+      padding-left: calc(~"30% + "@metric/2);
+      input:not([type="radio"]):not([type="checkbox"]) {
+        .inputfull;
+      }
+    }
     .af-wrapper {
       text-align: left;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    legend {
-      font-size: 1em;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
-    &.af-inline .af-wrapper div {
-      display: flex;
-      span.af-legend.af-grow-label {
-        width: 30%;
-        margin-right: 0.5em;
-        flex-grow: 1;
-      }
-      p {
-        flex-grow: 1;
-        &.af-grow-one { flex-grow: 1; }
-        &.af-grow-two { flex-grow: 2; }
-        &.af-grow-three { flex-grow: 3; }
-        &.af-grow-four { flex-grow: 4; }
-        input, textarea { width: calc(~"100% - 2rem") !important; }
-        select { width: calc(~"100% - 0.7rem") !important; }
-      }
+      max-width: 400px;
+      margin: 0 auto @metric*2 auto;
+      &:last-child { margin-bottom: 0; }
     }
     p {
       display: block;
-      clear: both;
-      margin: 0 0 1em 0;
-      input[type="text"], input[type="phone"], input[type="email"], input[type="url"] {
+      margin: 0 0 @metric 0;
+      input {
         display: inline-block;
       }
-      &:last-child {
-        margin-bottom: 0;
+      input, select {
+        vertical-align: top;
       }
-      &.af-radiogroup {
+      select { .selectpartial; }
+      input:not([type="radio"]):not([type="checkbox"]) { .inputpartial; }
+      &:last-child { margin-bottom: 0; }
+      &.af-inputgroup {
         vertical-align: text-top;
-        label {
-          vertical-align: top;
-        }
         span {
-          display: inline-block;;
-          max-width: 67%;
-          clear: right;
+          display: inline-block;
+          width: 67%;
           vertical-align: text-top;
+          line-height: normal;
           label {
             display: block;
+            text-align: left;
             clear: both;
             font-size: 0.85rem;
             width: auto;
             max-width: 100%;
-            margin-bottom: 0.5em;
+            margin-bottom: @metric/2;
+          }
+          input {
+            width: auto;
           }
         }
-        &.af-radiogroup-inline {
+        &.af-inputgroup-inline {
           span {
             display: inline-block;
             font-size: 0;
-            // white-space: nowrap;
             label {
               display: inline-block;
               width: auto;
               cursor: pointer;
-              margin-right: 1rem;
+              margin-right: @metric;
             }
           }
         }
-        &.af-radiogroup-buttons {
+        &.af-inputgroup-buttons {
           span {
             display: inline-block;
             vertical-align: top;
@@ -138,117 +212,175 @@ form.af-form {
               white-space: nowrap;
               width: auto;
               cursor: pointer;
-              padding: 0.5em 1em;
+              padding: @metric/2 @metric;
               background-color: @dark;
               margin: 0 1px 1px 0;
-              &:first-child {
-                border-radius: @smallradius 0 0 @smallradius;
-              }
-              &:last-child {
-                margin-right: 0;
-                border-radius: 0 @smallradius @smallradius 0
-              }
+              &:last-child { margin-right: 0; }
             }
           }
         }
-        input[type="radio"] {
+        input[type="radio"], input[type="checkbox"] {
           display: inline-block;
-          margin: 0 0.25em 0 0;
+          margin: 0 @metric/3 0 0;
+          vertical-align: baseline;
         }
       }
     }
     label {
       font-size: 1rem;
-    }
-  }
-  &.af-labels-top {
-    label {
-      display: block;
-      clear: both;
-      margin-bottom: 0.25em;
-    }
-    &.af-justify {
-      fieldset {
-        p {
-          label {
-            width: 100%;
-          }
-          input[type="text"], input[type="phone"], input[type="email"], input[type="url"], textarea {
-            width: calc(~"100% - 1rem");
-          }
-          select { width: 100%; }
-        }
-        &.af-radiogroup span label {
-          width: auto;
-        }
-      }
-    }
-  }
-  &.af-labels-left {
-    label, span.af-legend {
       text-align: right;
       clear: left;
       display: inline-block;
-      margin-right: 0.5em;
-      width: 30%;
-      max-width: 30%;
+      margin-right: @metric/2;
+      width: calc(~"30% - "@metric/2);
+      max-width: calc(~"30% - "@metric/2);
       line-height: normal;
     }
+    .af-inline {
+      padding-left: calc(~"30% + "@metric/2);
+    }
+  }
+  &.af-labels-top {
     fieldset {
-      width: auto;
-      display: block;
-      clear: both;
-      margin-left: auto;
-      margin-right: auto;
       p {
-        input, select, textarea {
-          vertical-align: top;
+        label {
+          width: 100%;
+          text-align: left;
+          display: block;
+          clear: both;
+          margin-bottom: @metric/4;
         }
-        input[type="text"], input[type="phone"], input[type="email"], input[type="url"], textarea {
-          width: calc(~"69% - 1.7rem");
-        }
-        select {
-          width: calc(~"69% - 0.7rem");
-        }
+        input:not([type="radio"]):not([type="checkbox"]) { .inputfull; }
+        select { .selectfull; }
       }
-      &.af-radiogroup span label {
+      &.af-inputgroup span label {
         width: auto;
       }
-      &.af-inline {
-        .af-wrapper {
-          & > p, & > div {
-            padding-left: 30%;
-            input[type="text"], input[type="phone"], input[type="email"], input[type="url"], textarea {
-              width: calc(~"100% - 1.7rem");
+    }
+    .af-hide-labels {
+      .af-wrapper {
+        p {
+          padding-left: 0;
+        }
+      }
+    }
+    .af-inline {
+      padding-left: 0;
+    }
+    .af-error-message, .af-info {
+      padding-left: 0;
+    }
+  }
+  .af-errors {
+    color: red;
+    padding-left: 2em;
+    line-height: normal;
+    position: relative;
+    &::before {
+      font-family: FontAwesome;
+      content: "\f071";
+      font-size: 1.35em;
+      position: absolute;
+      left: 0;
+    }
+    a {
+      color: red;
+      text-decoration: underline;
+    }
+    .af-legend {
+      legend {
+      }
+    }
+    ol {
+      list-style-type: disc;
+    }
+  }
+  .af-info {
+    color: fade(@black, 50%);
+  }
+  .af-error-message, .af-info {
+    font-size: @small !important;
+    font-style: italic;
+    margin: @metric/2 0 !important;
+    line-height: normal;
+    display: block;
+    padding-left: calc(~"30% +" @metric/2);
+  }
+  .af-error-message {
+    display: none !important;
+    visibility: hidden;
+    color: red;
+    speak: none;
+  }
+  .af-error {
+    &::before, &::after { top: 0; }
+  }
+  &.af-labels-top .af-error {
+    &::before, &::after { top: 1.65em; }
+  }
+  .af-hide-labels .af-error, .af-hide-labels.af-error {
+    &::before, &::after { top: 0; }
+  }
+  .af-error {
+    position: relative;
+    &::before {
+      font-family: FontAwesome;
+      content: "\f071";
+      position: absolute;
+      font-size: 16px;
+      left: -@metric*2;
+      color: red;
+    }
+    &::after {
+      font-family: FontAwesome;
+      content: "\f00d";
+      position: absolute;
+      font-style: italic;
+      right: -@metric*2;
+    }
+    .af-error-message, & + .af-error-message, & + .af-info + .af-error-message {
+      display: block !important;
+      visibility: visible;
+      speak: normal;
+    }
+    input:not([type="button"]), select, textarea {
+      border: 2px solid red !important;
+      position: relative;
+    }
+  }
+  &.af-mobile { // same as media query below
+    label {
+      text-align: left;
+      display: block;
+      margin: 0 0 @metric/3 0;
+      width: auto;
+      max-width: 100%;
+    }
+    fieldset {
+      p {
+        select { .selectfull; }
+        input:not([type="radio"]):not([type="checkbox"]) {
+          .inputfull;
+        }
+        &.af-inputgroup {
+          span {
+            width: 100%;
+            display: block;
+            input {
+              width: auto;
             }
-            select {
-              width: calc(~"100% - 0.7rem");
+            label {
+              text-align: left;
             }
           }
         }
       }
+      &.af-hide-labels .af-wrapper > p {
+        padding-left: 0;
+      }
     }
-  }
-  &.af-dark {
-    color: black;
-    fieldset {
-      background-color: @dark;
-    }
-  }
-  &.af-light {
-    color: white;
-    fieldset {
-      background-color: @light;
-    }
-  }
-  &.af-boxed {
-    padding: 2em;
-    border-radius: @bigradius;
-    &.af-dark {
-      // background-color: @dark;
-    }
-    &.af-light {
-      // background-color: @light;
+    .af-inline {
+      padding-left: 0;
     }
   }
 }
@@ -258,39 +390,69 @@ label.af-hide-labels {
   display: none !important;
 }
 
-@media only screen and (max-width: 500px) {
-  // .af-hide-labels label, label.af-hide-labels {
-  //   display: inline-block !important;
-  // }
+.af-button {
+  display: inline-block;
+}
+
+
+@media only screen and (max-width: 500px) { // same as .af-mobile above
   form.af-form {
-    &.af-labels-left {
-      fieldset {
-        p {
-          label {
-            max-width: 100%;
-            width: 100%;
-            text-align: left;
-            margin-right: 0;
-          }
-          input, select, textarea {
-            flex-shrink: 0;
-          }
-          input[type="text"], input[type="phone"], input[type="email"], input[type="url"], textarea {
-            width: calc(~"100% - 1.7rem");
-          }
-          select {
-            width: calc(~"100% - 0.7rem");
-          }
+    label {
+      text-align: left;
+      display: block;
+      margin: 0 0 @metric/3 0;
+      width: auto;
+      max-width: 100%;
+    }
+    fieldset {
+      p {
+        select { .selectfull; }
+        input:not([type="radio"]):not([type="checkbox"]) {
+          .inputfull;
         }
-        &.af-inline {
-          display: block;
-          .af-wrapper {
-            & > p, & > div {
-              padding-left: 0;
+        &.af-inputgroup {
+          span {
+            width: 100%;
+            display: block;
+            input {
+              width: auto;
+            }
+            label {
+              text-align: left;
             }
           }
         }
       }
+      &.af-hide-labels .af-wrapper > p {
+        padding-left: 0;
+      }
     }
+    .af-inline {
+      padding-left: 0;
+    }
+  }
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+.af-inline {
+  display: flex;
+  p {
+    padding-right: @metric;
+    flex-grow: 1;
+    &.af-grow-one { flex-grow: 1; }
+    &.af-grow-two { flex-grow: 2; }
+    &.af-grow-three { flex-grow: 3; }
+    &.af-grow-four { flex-grow: 4; }
+    &:last-of-type { padding-right: 0; }
+    input:not([type="radio"]):not([type="checkbox"]) { .inputfull !important; }
+    select { .selectfull !important; }
+  }
+  &:last-child p {
+    margin-bottom: 0;
   }
 }

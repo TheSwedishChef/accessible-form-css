@@ -10,8 +10,6 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet/less" href="css/af-form.less">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -33,64 +31,161 @@
     </script>
     <script src="js/vendor/less.min.js"></script>
   </head>
-  <body>
-    <section>
-      <form class="af-form af-dark af-labels-left af-styled">
+  <body id="top">
+    <!-- <div>
+      <ul>
+        <li>
+          <a href="https://www.cxpartners.co.uk/our-thinking/form_design_guidelines_crib_sheet_free/" target="_blank">cxpartners.co.uk/our-thinking/form_design_guidelines_crib_sheet_free/</a>
+        </li>
+        <li>
+          <a href="http://www.lukew.com/ff/entry.asp?1502" target="_blank">lukew.com/ff/entry.asp?1502</a>
+        </li>
+      </ul>
+    </div> -->
+    <!-- <div>
+      <ul>
+        <li><a href="#top">TOP</a></li>
+        <li><a href="#1">Form 1</a></li>
+        <li><a href="#2">Form 2</a></li>
+        <li><a href="#3">Form 3</a></li>
+      </ul>
+    </div> -->
+
+
+    <section id="one">
+      <form class="af-form af-styled af-labels-left">
         <span class="af-legend">
-          <legend>af-dark af-labels-left af-styled</legend>
+          <legend>Try the options</legend>
         </span>
         <fieldset>
           <div class="af-wrapper">
-            <span class="af-legend">
-              <legend>Fieldset title</legend>
-            </span>
-            <p>
-              <label for="select-prefix">Salutation</label>
-              <select id="select-prefix">
-                <option value="Mr" selected checked>Mr</option>
-                <option value="Mrs">Mrs</option>
-                <option value="Ms">Ms</option>
-              </select>
+            <p class="af-inputgroup af-inputgroup-buttons">
+              <label for="style">Style</label>
+              <span>
+                <label><input type="radio" value="on" name="style" checked> On</label>
+                <label><input type="radio" value="off" name="style"> Off</label>
+              </span>
             </p>
-            <p>
-              <label for="fname">First name</label>
-              <input id="fname" type="text" placeholder="first name">
+            <p class="af-inputgroup af-inputgroup-buttons">
+              <label for="boxed">Boxed</label>
+              <span>
+                <label><input type="radio" value="on" name="boxed"> On</label>
+                <label><input type="radio" value="off" name="boxed" checked> Off</label>
+              </span>
             </p>
-            <p>
-              <label for="lname">Last name</label>
-              <input id="lname" type="text" placeholder="last name">
+            <p class="af-inputgroup af-inputgroup-buttons">
+              <label for="errors">Errors</label>
+              <span>
+                <label><input type="radio" value="on" name="errors"> On</label>
+                <label><input type="radio" value="off" name="errors" checked> Off</label>
+              </span>
             </p>
-            <p>
-              <label for="select">Select label</label>
-              <select id="select">
-                <option value="option 1" selected checked>Option 1</option>
-                <option value="option 2">Option 2</option>
-                <option value="option 3">Option 3</option>
-              </select>
+            <p class="af-inputgroup af-inputgroup-buttons">
+              <label for="labels">Labels</label>
+              <span>
+                <label><input type="radio" value="left" name="labels" checked> Left</label>
+                <label><input type="radio" value="top" name="labels"> Top</label>
+              </span>
+            </p>
+            <p class="af-inputgroup af-inputgroup-buttons">
+              <label for="widthcontrol">Width</label>
+              <span>
+                <label><input type="radio" value="desktop" name="widthcontrol" checked> <i class="fa fa-desktop"></i></label>
+                <label><input type="radio" value="tablet" name="widthcontrol"> <i class="fa fa-tablet"></i></label>
+                <label><input type="radio" value="mobile" name="widthcontrol"> <i class="fa fa-mobile"></i></label>
+              </span>
             </p>
           </div>
         </fieldset>
-        <fieldset>
-          <div class="af-wrapper">
-            <span class="af-legend">
-              <legend>af-inline</legend>
+      </form>
+      <p><strong>Form is</strong> <span id="width"></span> wide by <span id="height"></span> tall</p>
+    </section>
+
+
+    <section id="two">
+      <div id="container">
+        <form class="af-form af-styled">
+          <div class="af-errors" style="display:none">
+            <span class="af-legend" aria-role="alert">
+              <legend>Please check the following:</legend>
             </span>
-            <div class="af-inline">
-              <p class="af-grow-one">
+            <ol>
+              <li><a href="#salutation">Salutation</a></li>
+              <li><a href="#firstname">First name</a></li>
+            </ol>
+            <p><a href="#">And 3 more&hellip;</a></p>
+          </div>
+          <span class="af-legend">
+            <legend>The form</legend>
+          </span>
+          <fieldset>
+            <div class="af-wrapper">
+              <span class="af-legend">
+                <legend>Full name</legend>
+              </span>
+              <p id="salutation" class="af-error-candidate">
+                <label for="select-prefix">Salutation</label>
+                <select id="select-prefix">
+                  <option value="Mr" selected checked>Mr</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Ms">Ms</option>
+                </select>
+                <span class="af-error-message">Please choose your salutation</span>
+              </p>
+              <p id="firstname" class="af-error-candidate">
+                <label for="fname">First name</label>
+                <input id="fname" type="text" placeholder="first name">
+                <span class="af-error-message">Please type your first name</span>
+              </p>
+              <p>
+                <label for="lname">Last name</label>
+                <input id="lname" type="text" placeholder="last name">
+              </p>
+            </div>
+            <div class="af-wrapper af-hide-labels">
+              <p>af-wrapper af-inline af-hide-labels</p>
+              <div class="af-inline af-error-candidate">
+                <p class="af-grow-one">
+                  <label for="select-prefix">Salutation</label>
+                  <select id="select-prefix">
+                    <option value="Mr" selected>Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Ms">Ms</option>
+                  </select>
+                </p>
+                <p class="af-grow-one">
+                  <label for="fname">First name</label>
+                  <input id="fname" type="text" placeholder="first name">
+                </p>
+                <p class="af-grow-one">
+                  <label for="lname">Last name</label>
+                  <input id="lname" type="text" placeholder="last name">
+                </p>
+              </div>
+              <span class="af-error-message">Please choose your salutation</span>
+            </div>
+          </fieldset>
+          <fieldset>
+            <div class="af-wrapper">
+              <span class="af-legend">
+                <legend>Date</legend>
+              </span>
+              <p>Normal</p>
+              <p class="af-error-candidate">
                 <label for="day">Day</label>
                 <select id="day">
                   <option value="1" selected>1</option>
                   <option value="2">2</option>
                 </select>
               </p>
-              <p class="af-grow-one">
+              <p class="af-error-candidate">
                 <label for="month">Month</label>
                 <select id="month">
                   <option value="Jan" selected>Jan</option>
                   <option value="Feb">Feb</option>
                 </select>
               </p>
-              <p class="af-grow-one">
+              <p class="af-error-candidate">
                 <label for="year">Year</label>
                 <select id="year">
                   <option value="1980" selected>1980</option>
@@ -98,205 +193,288 @@
                 </select>
               </p>
             </div>
-          </div>
-        </fieldset>
-        <fieldset class="af-inline af-hide-labels">
-          <div class="af-wrapper">
-            <span class="af-legend">
-              <legend>af-inline</legend>
-            </span>
-            <p>Mailing address</p>
-            <p>
-              <label for="street1">Street 1</label>
-              <input type="text" placeholder="street">
-            </p>
-            <p>
-              <label for="street2">Street 2</label>
-              <input type="text" placeholder="apt/unit">
-            </p>
-            <div>
-              <p class="af-grow-two">
+            <div class="af-wrapper">
+              <p>af-inline</p>
+              <div class="af-inline af-error-candidate">
+                <p class="af-grow-one">
+                  <label for="day">Day</label>
+                  <select id="day">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                  </select>
+                </p>
+                <p class="af-grow-one">
+                  <label for="month">Month</label>
+                  <select id="month">
+                    <option value="Jan" selected>Jan</option>
+                    <option value="Feb">Feb</option>
+                  </select>
+                </p>
+                <p class="af-grow-one">
+                  <label for="year">Year</label>
+                  <select id="year">
+                    <option value="1980" selected>1980</option>
+                    <option value="2">2</option>
+                  </select>
+                </p>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <div class="af-wrapper">
+              <span class="af-legend">
+                <legend>Address</legend>
+              </span>
+              <p>Mailing address</p>
+              <p class="af-error-candidate">
+                <label for="street1">Street 1</label>
+                <input type="text" placeholder="street">
+              </p>
+              <p class="af-error-candidate">
+                <label for="street2">Street 2</label>
+                <input type="text" placeholder="apt/unit">
+              </p>
+              <p class="af-error-candidate">
                 <label for="city">City</label>
                 <input type="text" id="city" placeholder="city">
               </p>
-              <p class="af-grow-one">
+              <p class="af-error-candidate">
                 <label for="state">State</label>
                 <input type="text" id="state" placeholder="state">
               </p>
-              <p class="af-grow-one">
+              <p class="af-error-candidate">
                 <label for="zip">Zip</label>
                 <input type="text" id="zip" placeholder="zip/postal">
               </p>
-            </div>
-            <p>
-              <label for="country">Country</label>
-              <input id="country" type="text" placeholder="country">
-            </p>
-          </div>
-        </fieldset>
-        <fieldset class="af-full-name af-inline af-hide-labels">
-          <div class="af-wrapper">
-            <span class="af-legend">
-              <legend>af-full-name af-inline</legend>
-            </span>
-            <div>
-              <p class="af-grow-2">
-                <label for="select-prefix">Salutation</label>
-                <select id="select-prefix">
-                  <option value="Mr" selected checked>Mr</option>
-                  <option value="Mrs">Mrs</option>
-                  <option value="Ms">Ms</option>
-                </select>
-              </p>
-              <p class="af-grow-one">
-                <label for="fname">First name</label>
-                <input id="fname" type="text" placeholder="first name">
-              </p>
-              <p class="af-grow-one">
-                <label for="lname">Last name</label>
-                <input id="lname" type="text" placeholder="last name">
+              <p class="af-error-candidate">
+                <label for="country">Country</label>
+                <input id="country" type="text" placeholder="country">
               </p>
             </div>
-          </div>
-        </fieldset>
-        <fieldset>
-          <div class="af-wrapper">
+          </fieldset>
+          <fieldset class="af-hide-labels">
+            <div class="af-wrapper">
+              <span class="af-legend">
+                <legend>Inline address</legend>
+              </span>
+              <p>Mailing address</p>
+              <p class="af-error-candidate">
+                <label for="street1">Street 1</label>
+                <input type="text" placeholder="street">
+              </p>
+              <p class="af-error-candidate">
+                <label for="street2">Street 2</label>
+                <input type="text" placeholder="apt/unit">
+              </p>
+              <div class="af-inline af-error-candidate">
+                <p class="af-grow-two">
+                  <label for="city">City</label>
+                  <input type="text" id="city" placeholder="city">
+                </p>
+                <p class="af-grow-one">
+                  <label for="state">State</label>
+                  <input type="text" id="state" placeholder="state">
+                </p>
+                <p class="af-grow-one">
+                  <label for="zip">Zip</label>
+                  <input type="text" id="zip" placeholder="zip/postal">
+                </p>
+              </div>
+              <p class="af-error-candidate">
+                <label for="country">Country</label>
+                <input id="country" type="text" placeholder="country">
+              </p>
+            </div>
+          </fieldset>
+          <fieldset>
+            <div class="af-wrapper">
+              <span class="af-legend">
+                <legend>Radio groups</legend>
+              </span>
+              <p class="af-inputgroup af-inputgroup-inline af-error-candidate">
+                <label for="radio">Gender</label>
+                <span>
+                  <label><input name="radio" type="radio" value="1"> Female</label>
+                  <label><input name="radio" type="radio" value="2"> Male</label>
+                  <label><input name="radio" type="radio" value="3"> Genderless</label>
+                  <label><input name="radio" type="radio" value="4"> Transgender</label>
+                  <label><input name="radio" type="radio" value="5"> prefer not to say</label>
+                </span>
+                <span class="af-info">This information will not be shared</span>
+                <span class="af-error-message">Please make a selection</span>
+              </p>
+              <p class="af-inputgroup af-error-candidate">
+                <label for="radio">inputgroup</label>
+                <span>
+                  <label><input name="radio" type="radio" value="1"> Female</label>
+                  <label><input name="radio" type="radio" value="2"> Male</label>
+                  <label><input name="radio" type="radio" value="3"> Genderless</label>
+                  <label><input name="radio" type="radio" value="4"> Transgender</label>
+                  <label><input name="radio" type="radio" value="5"> prefer not to say</label>
+                </span>
+                <span class="af-info">This information will not be shared</span>
+                <span class="af-error-message">Please make a selection</span>
+              </p>
+              <p class="af-inputgroup af-inputgroup-buttons af-error-candidate">
+                <label for="radio">buttons</label>
+                <span>
+                  <label><input name="radio" type="radio" value="1"> Female</label>
+                  <label><input name="radio" type="radio" value="2"> Male</label>
+                  <label><input name="radio" type="radio" value="3"> Genderless</label>
+                  <label><input name="radio" type="radio" value="4"> Transgender</label>
+                  <label><input name="radio" type="radio" value="5"> prefer not to say</label>
+                </span>
+                <span class="af-info">This information will not be shared</span>
+                <span class="af-error-message">Please make a selection</span>
+              </p>
+            </div>
+          </fieldset>
+          <fieldset>
+            <div class="af-wrapper">
+              <span class="af-legend">
+                <legend>Checkbox groups</legend>
+              </span>
+              <p class="af-inputgroup af-inputgroup-inline af-error-candidate">
+                <label for="checkbox">inline</label>
+                <span>
+                  <label><input type="checkbox" value="1" checked> Option 1</label>
+                  <label><input type="checkbox" value="2"> Option 2</label>
+                  <label><input type="checkbox" value="3"> Option 3</label>
+                  <label><input type="checkbox" value="4"> Option 4</label>
+                  <label><input type="checkbox" value="5"> Option 5</label>
+                  <label><input type="checkbox" value="6"> Option 6</label>
+                </span>
+              </p>
+              <p class="af-inputgroup af-error-candidate">
+                <label for="checkbox">inputgroup</label>
+                <span>
+                  <label><input type="checkbox" value="1" checked> Option 1</label>
+                  <label><input type="checkbox" value="2"> Option 2</label>
+                  <label><input type="checkbox" value="3"> Option 3</label>
+                  <label><input type="checkbox" value="4"> Option 4</label>
+                  <label><input type="checkbox" value="5"> Option 5</label>
+                  <label><input type="checkbox" value="6"> Option 6</label>
+                </span>
+              </p>
+              <p class="af-inputgroup af-inputgroup-buttons af-error-candidate">
+                <label for="checkbox">buttons</label>
+                <span>
+                  <label><input type="checkbox" value="1" checked> Option 1</label>
+                  <label><input type="checkbox" value="2"> Option 2</label>
+                  <label><input type="checkbox" value="3"> Option 3</label>
+                </span>
+              </p>
+            </div>
+          </fieldset>
+          <fieldset>
             <span class="af-legend">
-              <legend>Fieldset title</legend>
+              <legend>Fringe types</legend>
             </span>
-            <p class="af-radiogroup af-radiogroup-inline">
-              <label for="radio">af-radiogroup af-radiogroup-inline</label>
-              <span>
-                <label><input name="radio" type="radio" value="1" checked> Option 1</label>
-                <label><input name="radio" type="radio" value="2"> Option 2</label>
-                <label><input name="radio" type="radio" value="3"> Option 3</label>
-                <label><input name="radio" type="radio" value="4"> Option 4</label>
-                <label><input name="radio" type="radio" value="5"> Option 5</label>
-                <label><input name="radio" type="radio" value="6"> Option 6</label>
-              </span>
-            </p>
-            <p class="af-radiogroup">
-              <label for="radio">af-radiogroup</label>
-              <span>
-                <label><input name="radio" type="radio" value="1" checked> Option 1</label>
-                <label><input name="radio" type="radio" value="2"> Option 2</label>
-                <label><input name="radio" type="radio" value="3"> Option 3</label>
-                <label><input name="radio" type="radio" value="4"> Option 4</label>
-                <label><input name="radio" type="radio" value="5"> Option 5</label>
-                <label><input name="radio" type="radio" value="6"> Option 6</label>
-              </span>
-            </p>
-          </div>
-        </fieldset>
-      </form>
-    </section>
-
-
-
-    <section>
-      <form class="af-form af-dark af-labels-top af-justify af-styled">
-        <span class="legend">
-          <legend>af-dark af-labels-top af-justify af-styled</legend>
-        </span>
-        <fieldset class="af-full-name">
-          <div class="af-wrapper">
-            <span class="legend">
-              <legend>af-full-name</legend>
-            </span>
-            <p>
-              <label for="select-prefix">Salutation</label>
-              <select id="select-prefix">
-                <option value="Mr" selected checked>Mr</option>
-                <option value="Mrs">Mrs</option>
-                <option value="Ms">Ms</option>
-              </select>
-            </p>
-            <p>
-              <label for="fname">First name</label>
-              <input id="fname" type="text" placeholder="first name">
-            </p>
-            <p>
-              <label for="lname">Last name</label>
-              <input id="lname" type="text" placeholder="last name">
-            </p>
-            <p>
-              <label for="select">Select label</label>
-              <select id="select">
-                <option value="option 1" selected checked>Option 1</option>
-                <option value="option 2">Option 2</option>
-                <option value="option 3">Option 3</option>
-              </select>
-            </p>
-          </div>
-        </fieldset>
-        <fieldset>
-          <div class="af-wrapper">
-            <span class="legend">
-              <legend>Fieldset title</legend>
-            </span>
-            <p class="af-radiogroup af-radiogroup-buttons">
-              <label for="radio">af-radiogroup af-radiogroup-buttons</label>
-              <span>
-                <label><input name="radio" type="radio" value="1" checked> Option 1</label>
-                <label><input name="radio" type="radio" value="2"> Option 2</label>
-                <label><input name="radio" type="radio" value="3"> Option 3</label>
-              </span>
-            </p>
-          </div>
-        </fieldset>
-      </form>
-    </section>
-
-
-
-    <section style="background-color:black;">
-      <form class="af-form af-light af-boxed af-labels-left af-styled">
-        <span class="legend">
-          <legend>af-light af-boxed af-labels-left af-styled</legend>
-        </span>
-        <fieldset>
-          <div class="af-wrapper">
-            <span class="legend">
-              <legend>Full name</legend>
-            </span>
-            <p>
-              <label for="select-prefix">Salutation</label>
-              <select id="select-prefix">
-                <option value="Mr" selected checked>Mr</option>
-                <option value="Mrs">Mrs</option>
-                <option value="Ms">Ms</option>
-              </select>
-            </p>
-            <p>
-              <label for="fname">First name</label>
-              <input id="fname" type="text" placeholder="first name">
-            </p>
-            <p>
-              <label for="lname">Last name</label>
-              <input id="lname" type="text" placeholder="last name">
-            </p>
-          </div>
-        </fieldset>
-        <fieldset>
-          <div class="af-wrapper">
-            <span class="legend">
-              <legend>Fieldset title</legend>
-            </span>
-            <p class="af-radiogroup af-radiogroup-buttons">
-              <label for="radio">af-radiogroup af-radiogroup-buttons</label>
-              <span>
-                <label><input name="radio" type="radio" value="1" checked> Option 1</label>
-                <label><input name="radio" type="radio" value="2"> Option 2</label>
-                <label><input name="radio" type="radio" value="3"> Option 3</label>
-              </span>
-            </p>
-          </div>
-        </fieldset>
-      </form>
+            <div class="af-wrapper">
+              <p>Date</p>
+              <div class="af-inline af-hide-labels af-error-candidate">
+                <p class="af-grow-two">
+                  <label for="date">Date</label>
+                  <input type="date" id="date" min="2000-01-02" max="1979-12-31">
+                </p>
+                <p class="af-grow-one">
+                  <input type="button" id="bn_date" class="af-button" value="Select&hellip;">
+                </p>
+              </div>
+              <p class="af-error-candidate">
+                <label for="week">Week</label>
+                <input type="week" id="week">
+              </p>
+              <p class="af-error-candidate">
+                <label for="time">Time</label>
+                <input type="time" id="time">
+              </p>
+              <p class="af-error-candidate">
+                <label for="month">Month</label>
+                <input type="month" id="month">
+              </p>
+              <p class="af-error-candidate">
+                <label for="datetime">Datetime</label>
+                <input type="datetime" id="datetime">
+              </p>
+              <p class="af-error-candidate">
+                <label for="datetime-local">Datetime-local</label>
+                <input type="datetime-local" id="datetime-local">
+              </p>
+              <div class="af-inline af-error-candidate">
+                <p class="af-grow-one">
+                  <label for="emailtype">Type</label>
+                  <select id="emailtype">
+                    <option value="1" selected>Personal</option>
+                    <option value="2">Work</option>
+                  </select>
+                </p>
+                <p class="af-grow-two">
+                  <label for="email">Email</label>
+                  <input type="email" id="email">
+                  <input type="button" class="af-button af-add" value="+ Add another email">
+                </p>
+              </div>
+              <span class="af-info">Your email(s) will be kept private</span>
+              <span class="af-error-message">Please enter an email address</span>
+              <p class="af-error-candidate">
+                <label for="search">Search</label>
+                <input type="search" id="search">
+              </p>
+              <p class="af-error-candidate">
+                <label for="url">URL</label>
+                <input type="url" id="url">
+              </p>
+              <div class="af-inline af-error-candidate">
+                <p class="af-grow-one">
+                  <label for="teltype">Type</label>
+                  <select id="teltype">
+                    <option value="1" selected>Mobile</option>
+                    <option value="2">Home</option>
+                    <option value="3">Work</option>
+                  </select>
+                </p>
+                <p class="af-grow-two">
+                  <label for="tel">Tel</label>
+                  <input type="tel" id="tel">
+                  <input type="button" class="af-button af-add" value="+ Add another number">
+                </p>
+              </div>
+              <p class="af-error-candidate">
+                <label for="password">Password</label>
+                <input type="password" id="password">
+              </p>
+              <p class="af-error-candidate">
+                <label for="color">Color</label>
+                <input type="color" id="color">
+              </p>
+              <p class="af-error-candidate">
+                <label for="range">Range</label>
+                <input type="range" id="range" min="0" max="10">
+              </p>
+              <p class="af-error-candidate">
+                <label for="file">Select file</label>
+                <input type="file" id="file">
+              </p>
+              <p class="af-error-candidate">
+                <label for="number">Number</label>
+                <input type="number" id="number" min="0" max="100" step="10" value="30">
+              </p>
+            </div>
+          </fieldset>
+          <fieldset class="af-actions">
+            <div class="af-wrapper">
+              <input type="reset" value="Reset" class="af-button af-tertiary af-button-left">
+              <input type="submit" value="Submit" class="af-button af-primary af-button-right">
+              <input type="button" value="Cancel" class="af-button af-secondary af-button-right">
+            </div>
+          </fieldset>
+        </form>
+      </div>
     </section>
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+    <script src="js/vendor/jquery-1.12.0.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/vendor/less.min.js"></script>
     <script src="js/main.js"></script>
