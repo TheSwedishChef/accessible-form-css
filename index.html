@@ -35,10 +35,13 @@
     <!-- <div>
       <ul>
         <li>
-          <a href="https://www.cxpartners.co.uk/our-thinking/form_design_guidelines_crib_sheet_free/" target="_blank">cxpartners.co.uk/our-thinking/form_design_guidelines_crib_sheet_free/</a>
+          <a href="https://www.cxpartners.co.uk/our-thinking/form_design_guidelines_crib_sheet_free/">cxpartners.co.uk/our-thinking/form_design_guidelines_crib_sheet_free/</a>
         </li>
         <li>
-          <a href="http://www.lukew.com/ff/entry.asp?1502" target="_blank">lukew.com/ff/entry.asp?1502</a>
+          <a href="http://www.lukew.com/ff/entry.asp?1502">lukew.com/ff/entry.asp?1502</a>
+        </li>
+        <li>
+          <a href="http://www.oaa-accessibility.org/examplep/datepicker1/">oaa-accessibility.org/examplep/datepicker1/</a>
         </li>
       </ul>
     </div> -->
@@ -53,7 +56,7 @@
 
 
     <section id="one">
-      <form class="af-form af-styled af-labels-left">
+      <form class="af-form af-styled">
         <span class="af-legend">
           <legend>Try the options</legend>
         </span>
@@ -62,16 +65,18 @@
             <p class="af-inputgroup af-inputgroup-buttons">
               <label for="style">Style</label>
               <span>
-                <label><input type="radio" value="on" name="style" checked> On</label>
-                <label><input type="radio" value="off" name="style"> Off</label>
+                <label><input id="styleon" type="radio" value="on" name="style" checked> On</label>
+                <label><input id="styleoff" type="radio" value="off" name="style"> Off</label>
               </span>
+              <span class="af-info">AAF Forms comes with a recommend, but optional, default set of&nbsp;styling.</span>
             </p>
             <p class="af-inputgroup af-inputgroup-buttons">
               <label for="boxed">Boxed</label>
               <span>
-                <label><input type="radio" value="on" name="boxed"> On</label>
-                <label><input type="radio" value="off" name="boxed" checked> Off</label>
+                <label><input id="boxedon" type="radio" value="on" name="boxed"> On</label>
+                <label><input id="boxedoff" type="radio" value="off" name="boxed" checked> Off</label>
               </span>
+              <span class="af-info">An <code>.af-styled</code> form can be in a boxed layout, or&nbsp;not.</span>
             </p>
             <p class="af-inputgroup af-inputgroup-buttons">
               <label for="errors">Errors</label>
@@ -79,6 +84,7 @@
                 <label><input type="radio" value="on" name="errors"> On</label>
                 <label><input type="radio" value="off" name="errors" checked> Off</label>
               </span>
+              <span class="af-info">Show errors.</span>
             </p>
             <p class="af-inputgroup af-inputgroup-buttons">
               <label for="labels">Labels</label>
@@ -86,6 +92,7 @@
                 <label><input type="radio" value="left" name="labels" checked> Left</label>
                 <label><input type="radio" value="top" name="labels"> Top</label>
               </span>
+              <span class="af-info">Form labels can be set to be top-aligned instead of the default, recommended left-aligned.</span>
             </p>
             <p class="af-inputgroup af-inputgroup-buttons">
               <label for="widthcontrol">Width</label>
@@ -94,6 +101,7 @@
                 <label><input type="radio" value="tablet" name="widthcontrol"> <i class="fa fa-tablet"></i></label>
                 <label><input type="radio" value="mobile" name="widthcontrol"> <i class="fa fa-mobile"></i></label>
               </span>
+              <span class="af-info">Desktop &amp; tablet are no different; just stretchy. Mobile will work automagically via <code>@media</code> query or by using the <code class="nowrap">.af-mobile</code>&nbsp;class.</span>
             </p>
           </div>
         </fieldset>
@@ -370,16 +378,57 @@
             <span class="af-legend">
               <legend>Fringe types</legend>
             </span>
+
+            <div id="application">
+
+            </div>
+
             <div class="af-wrapper">
               <p>Date</p>
-              <div class="af-inline af-hide-labels af-error-candidate">
+              <div class="af-inline af-hide-labels af-error-candidate" role="application">
                 <p class="af-grow-two">
-                  <label for="date">Date</label>
+                  <label id="date_label" for="date">Date</label>
                   <input type="date" id="date" min="2000-01-02" max="1979-12-31">
                 </p>
-                <p class="af-grow-one">
+                <div class="af-grow-one af-datepicker">
                   <input type="button" id="bn_date" class="af-button" value="Select&hellip;">
-                </p>
+                  <!-- <label id="date_label" for="date">Date</label> -->
+                  <!-- <input id="date" type="text"/> -->
+                  <!-- <button id="bn_date">Select Date...</button> -->
+                  <div id="dp1" class="datepicker" aria-hidden="true">
+                    <div id="month-wrap">
+                      <div id="bn_prev" role="button" aria-labelledby="bn_prev-label" tabindex="0">
+                        <img class="bn_img" src="http://www.oaa-accessibility.org/media/examples/images/prev.png" alt="<<"/>
+                      </div>
+                      <div id="month" role="heading" aria-live="assertive" aria-atomic="true">
+                        February 2011
+                      </div>
+                      <div id="bn_next" role="button" aria-labelledby="bn_next-label" tabindex="0">
+                        <img class="bn_img" src="http://www.oaa-accessibility.org/media/examples/images/next.png" alt=">>"/>
+                      </div>
+                    </div>
+                    <table id="cal" role="grid" aria-activedescendant="errMsg" aria-labelledby="month" tabindex="0">
+                      <thead>
+                        <tr id="weekdays">
+                          <th id="Sunday"><abbr title="Sunday">Su</abbr></th>
+                          <th id="Monday"><abbr title="Monday">Mo</abbr></th>
+                          <th id="Tuesday"><abbr title="Tuesday">Tu</abbr></th>
+                          <th id="Wednesday"><abbr title="Wednesday">We</abbr></th>
+                          <th id="Thursday"><abbr title="Thursday">Th</abbr></th>
+                          <th id="Friday"><abbr title="Friday">Fr</abbr></th>
+                          <th id="Saturday"><abbr title="Saturday">Sa</abbr></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td id="errMsg" colspan="7">Javascript must be enabled</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div id="bn_prev-label" class="offscreen">Go to previous month</div>
+                    <div id="bn_next-label" class="offscreen">Go to next month</div>
+                  </div>
+                </div>
               </div>
               <p class="af-error-candidate">
                 <label for="week">Week</label>
@@ -401,7 +450,7 @@
                 <label for="datetime-local">Datetime-local</label>
                 <input type="datetime-local" id="datetime-local">
               </p>
-              <div class="af-inline af-error-candidate">
+              <div class="af-inline af-error-candidate af-duplicable">
                 <p class="af-grow-one">
                   <label for="emailtype">Type</label>
                   <select id="emailtype">
@@ -412,7 +461,7 @@
                 <p class="af-grow-two">
                   <label for="email">Email</label>
                   <input type="email" id="email">
-                  <input type="button" class="af-button af-add" value="+ Add another email">
+                  <input id="addEmail" type="button" class="af-button af-add" value="+ Add another email">
                 </p>
               </div>
               <span class="af-info">Your email(s) will be kept private</span>
@@ -425,7 +474,7 @@
                 <label for="url">URL</label>
                 <input type="url" id="url">
               </p>
-              <div class="af-inline af-error-candidate">
+              <div class="af-inline af-error-candidate af-duplicable">
                 <p class="af-grow-one">
                   <label for="teltype">Type</label>
                   <select id="teltype">
@@ -437,7 +486,7 @@
                 <p class="af-grow-two">
                   <label for="tel">Tel</label>
                   <input type="tel" id="tel">
-                  <input type="button" class="af-button af-add" value="+ Add another number">
+                  <input id="addPhone" type="button" class="af-button af-add" value="+ Add another number">
                 </p>
               </div>
               <p class="af-error-candidate">
@@ -465,8 +514,8 @@
           <fieldset class="af-actions">
             <div class="af-wrapper">
               <input type="reset" value="Reset" class="af-button af-tertiary af-button-left">
+              <input type="button" value="Cancel" class="af-button af-secondary af-button-left">
               <input type="submit" value="Submit" class="af-button af-primary af-button-right">
-              <input type="button" value="Cancel" class="af-button af-secondary af-button-right">
             </div>
           </fieldset>
         </form>
@@ -477,6 +526,7 @@
     <script src="js/vendor/jquery-1.12.0.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/vendor/less.min.js"></script>
+    <script src="js/vendor/datepicker.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

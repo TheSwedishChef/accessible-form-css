@@ -56,15 +56,18 @@ form.af-form {
   display: block;
   color: @black;
   &.af-styled {
+    &.af-boxed {
+      padding: @metric*2;
+      border-radius: @bigradius;
+      background-color: @dark;
+    }
     .af-button {
       border: 0;
       outline: none;
       border-radius: @smallradius;
       padding: 0.25em 0.5em;
       margin-right: @metric;
-      &.af-primary, &.af-secondary {
-        font-size: 1.25em;
-      }
+      font-size: 1.1em;
       &.af-primary {
         padding-left: @metric;
         padding-right: @metric;
@@ -79,7 +82,6 @@ form.af-form {
         float: left;
       }
       &.af-button-right {
-        float: right;
         margin: 0 0 0 @metric;
         &:last-of-type { margin-left: 0; }
       }
@@ -88,11 +90,13 @@ form.af-form {
         width: 100% !important;
         margin-top: @metric/2;
       }
-    }
-    &.af-boxed {
-      padding: @metric*2;
-      border-radius: @bigradius;
-      background-color: @dark;
+      fieldset {
+        &.af-actions {
+          .af-wrapper {
+
+          }
+        }
+      }
     }
     fieldset {
       padding: @metric*2 @metric*3;
@@ -100,7 +104,7 @@ form.af-form {
       border-radius: @bigradius;
       margin-bottom: @metric*2;
       background-color: @dark;
-      p {
+      p, .af-datepicker {
         input:not([type="radio"]):not([type="checkbox"]) {
           padding: @metric/3 @metric/2;
           border: 0 none;
@@ -110,7 +114,6 @@ form.af-form {
       }
       &.af-actions {
         background: 0 none !important;
-        text-align: right;
         padding: 0;
         max-width: 100%;
         .af-wrapper {
@@ -152,13 +155,16 @@ form.af-form {
         .inputfull;
       }
     }
+    &.af-actions .af-wrapper {
+      text-align: right;
+    }
     .af-wrapper {
       text-align: left;
       max-width: 400px;
       margin: 0 auto @metric*2 auto;
       &:last-child { margin-bottom: 0; }
     }
-    p {
+    p, .af-datepicker {
       display: block;
       margin: 0 0 @metric 0;
       input {
@@ -242,7 +248,7 @@ form.af-form {
   }
   &.af-labels-top {
     fieldset {
-      p {
+      p, .af-datepicker {
         label {
           width: 100%;
           text-align: left;
@@ -259,7 +265,7 @@ form.af-form {
     }
     .af-hide-labels {
       .af-wrapper {
-        p {
+        p, .af-datepicker {
           padding-left: 0;
         }
       }
@@ -357,7 +363,7 @@ form.af-form {
       max-width: 100%;
     }
     fieldset {
-      p {
+      p, .af-datepicker {
         select { .selectfull; }
         input:not([type="radio"]):not([type="checkbox"]) {
           .inputfull;
@@ -381,6 +387,10 @@ form.af-form {
     }
     .af-inline {
       padding-left: 0;
+      display: block;
+      p {
+        padding-right: 0;
+      }
     }
   }
 }
@@ -405,7 +415,7 @@ label.af-hide-labels {
       max-width: 100%;
     }
     fieldset {
-      p {
+      p, .af-datepicker {
         select { .selectfull; }
         input:not([type="radio"]):not([type="checkbox"]) {
           .inputfull;
@@ -433,6 +443,8 @@ label.af-hide-labels {
   }
 }
 
+.nowrap { white-space: nowrap; }
+
 a {
   color: blue;
   text-decoration: none;
@@ -441,7 +453,7 @@ a {
 
 .af-inline {
   display: flex;
-  p {
+  p, .af-datepicker {
     padding-right: @metric;
     flex-grow: 1;
     &.af-grow-one { flex-grow: 1; }
@@ -456,3 +468,5 @@ a {
     margin-bottom: 0;
   }
 }
+
+@import (css) "datepicker.css";

@@ -1,0 +1,111 @@
+/*
+http://www.oaa-accessibility.org/examplep/datepicker1/
+*/
+
+.af-datepicker {
+  position: relative;
+}
+
+.datepicker {
+   margin: 10px;
+   padding: 2px;
+   position: absolute;
+   right: 0;
+   top: 2em;
+   width: 261px;
+   background-color: #fff;
+   border: 1px solid #ccc;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+}
+div#month-wrap {
+   height: 30px;
+   background-color: #ddd;
+   border: 1px solid black;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+}
+div#bn_prev {
+   margin: 3px;
+   float: left;
+   width: 24px;
+   height: 24px;
+}
+div#bn_next {
+   margin: 3px;
+   float: right;
+   width: 24px;
+   height: 24px;
+}
+
+div#bn_prev:hover,
+div#bn_prev:focus,
+div#bn_next:hover,
+div#bn_next:focus {
+   margin: 2px;
+   background-color: #fc3;
+   border: 1px solid #800;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+}
+img.bn_img {
+   margin: 0;
+   padding: 2px;
+}
+div#month {
+   float: left;
+   padding-top: 6px;
+   width: 199px;
+   height: 24px;
+   text-align: center;
+   font-weight: bold;
+   font-size: 1.2em;
+}
+table#cal {
+   width: 261px;
+   font-size: 1.2em;
+   text-align: center;
+}
+table#cal th,
+table#cal td {
+   width: 35px;
+   height: 30px;
+   padding: 0;
+}
+table#cal td {
+   background-color: #ddd;
+   border: 1px solid #999;
+}
+
+table#cal td.today {
+   background-color: #FFF0C4;
+   border: 1px solid #999;
+}
+
+table#cal td.empty {
+   background-color: #f9f9f9;
+   border: 1px solid #eee;
+}
+
+table#cal td:hover,
+table#cal td.focus {
+   border-color: #800;
+   background-color: #fc3;
+}
+
+table#cal td.empty:hover {
+   background-color: #f9f9f9;
+   border: 1px solid #eee;
+}
+
+.offscreen {
+   position: absolute;
+   left: -200em;
+   top: -100em;
+}
+[aria-hidden="true"] {
+   display: none;
+}
